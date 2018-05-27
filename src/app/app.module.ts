@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
+import { LogoComponent } from './components/logo/logo.component';
 
 const routes: Routes  = [
   { path: '', component: HomeComponent },
@@ -17,7 +18,8 @@ const routes: Routes  = [
     AppComponent,
     TopbarComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    LogoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
