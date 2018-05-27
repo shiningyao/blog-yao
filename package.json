@@ -39,6 +39,7 @@
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
     "compression": "^1.7.2",
+    "hoek": "^4.2.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
