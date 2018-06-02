@@ -1,0 +1,104 @@
+.carousel-container {
+    position: relative;
+    padding-bottom: 80px;
+    & > div {
+        height: 270px;
+    }
+    &.moving {
+        .latest-carousel-content {
+            display: none;
+        }
+    }
+    ::ng-deep .tns-nav {
+        position: absolute;
+        width: 100%;
+        bottom: 30px;
+        & > ::ng-deep button {
+            margin: 0 10px;
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: none;
+            background-color: rgba(#ff7a40, .5);
+            outline: none;
+            ::ng-deep &.tns-nav-active {
+                background-color: #ff7a40;
+            }
+        }
+    }
+
+    .tns-item {
+        position: relative;
+    }
+
+    .latest-carousel-content {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 30px;
+        background-color: rgba(0, 0, 0, .5);
+        transition: 300ms;
+        & > h3 {
+            font-size: 20px;
+            margin: 15px 0 0;
+            font-weight: 600;
+            line-height: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #FFFFFF;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, .75);
+        }
+
+        .side-meta {
+            line-height: 30px;
+            display: block;
+            margin-top: -3px;
+            a {
+                line-height: 1em;
+                font-style: italic;
+                font-size: 13px;
+                font-weight: 400;
+                color: #DBDBDB;
+                text-decoration: none;
+            }
+        }
+
+        .latest-cats {
+            display: inline-block;
+            text-transform: uppercase;
+            border: 2px solid #ff7a40;
+            background-color: #ff7a40;
+            margin-top: 15%;
+            padding: 0 7px 1px;
+            line-height: 20px;
+            transition: 300ms;
+            border-radius: 2px;
+            &:hover {
+                background-color: #000000;
+                border-color: #FFFFFF;
+            }
+            & > a {
+                text-decoration: none;
+                color: #FFFFFF;
+                font-size: 12px;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .latest-carousel-image {
+        & > a {
+            display: block;
+            overflow: hidden;
+            & > img {
+                float: left;
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+.main-content {
+    margin-bottom: 30px;
+    position: relative;
+    background-color: #ffffff;
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        top: -22px;
+        width: 18px;
+        height: 42px;
+        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMyAzNyI+CiAgICA8ZGVmcz4KICAgICAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImJvcmRlckdyYWRpZW50IiB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIj4KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6cmdiKDAsMCwwKTsKICAgICAgICAgICAgc3RvcC1vcGFjaXR5OjEiLz4KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSI1MCUiIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigzNSwzMywzMCk7CiAgICAgICAgICAgIHN0b3Atb3BhY2l0eToxIi8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6cmdiKDAsIDAsIDApOwogICAgICAgICAgICBzdG9wLW9wYWNpdHk6MSIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPSJmaWxsR3JhZGllbnQiIHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9IjEwMCUiPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjpyZ2IoMCwwLDApOwogICAgICAgICAgICBzdG9wLW9wYWNpdHk6MSIvPgogICAgICAgICAgICA8c3RvcCBvZmZzZXQ9IjM1JSIgc3R5bGU9InN0b3AtY29sb3I6cmdiKDEzMiwxMjUsMTA4KTsKICAgICAgICAgICAgc3RvcC1vcGFjaXR5OjEiLz4KICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PSIzOCUiIHN0eWxlPSJzdG9wLWNvbG9yOnJnYigxNDcsMTQ2LDE0Myk7CiAgICAgICAgICAgIHN0b3Atb3BhY2l0eToxIi8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iNjUlIiBzdHlsZT0ic3RvcC1jb2xvcjpyZ2IoNzUsIDY4LCA1Myk7CiAgICAgICAgICAgIHN0b3Atb3BhY2l0eToxIi8+CiAgICAgICAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6cmdiKDAsIDAsIDApOwogICAgICAgICAgICBzdG9wLW9wYWNpdHk6MSIvPgogICAgICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8L2RlZnM+CiAgICA8Y2lyY2xlIGN4PSI2LjUiIGN5PSI2LjUiIHI9IjYuNSIgLz4KICAgIDxjaXJjbGUgY3g9IjYuNSIgY3k9IjMwLjUiIHI9IjYuNSIgLz4KICAgIDxyZWN0IHg9IjIiIHk9IjMiIHdpZHRoPSI5IiBoZWlnaHQ9IjMwIiByeD0iNC41IiByeT0iNC41IiBmaWxsPSJ1cmwoI2ZpbGxHcmFkaWVudCkiIHN0cm9rZT0idXJsKCNib3JkZXJHcmFkaWVudCkiIC8+Cjwvc3ZnPg==);
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 1;
+    }
+
+    &:before {
+        left: 100px;
+    }
+
+    &:after {
+        right: 100px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .app-layout {
+        &.boxed {
+            .app-container {
+                width: 1170px;
+                margin: 30px auto 0;
+                box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+}

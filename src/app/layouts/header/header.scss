@@ -1,0 +1,55 @@
+.header-container {
+    text-align: center;
+    background-color: #ffffff;
+    margin-bottom: 2px;
+    font-weight: 400;
+}
+
+.logo-header {
+    // width: 339px;
+    margin: 0 auto;
+    padding: 50px 0;
+    border-bottom: 1px solid #efefef;
+}
+
+.top-ornament {
+    text-align: center;
+    margin-bottom: 10px;
+    & > img {
+        width: 1.2em;
+    }
+
+    & > span {
+        margin: 0 15px;
+        display: inline-block;
+        position: relative;
+        top: -0.25em;
+        text-transform: uppercase;
+        color: #6c6c6c;
+    }
+
+    & > svg {
+        display: inline-block;
+        width: 35px;
+        margin: 0 10px;
+    }
+}
+
+.blog-name {
+    font-size: 70px;
+    color: #000000;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.blog-description {
+    text-transform: uppercase;
+    word-spacing: 0.2em;
+    letter-spacing: 5px;
+    font-weight: 600;
+    color: #8a8a8a;
+    font-family: "sans-serif";
+    font-size: .6em;
+    text-shadow: 0 0 1px #efefef;
+}

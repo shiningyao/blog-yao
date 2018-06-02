@@ -2,30 +2,36 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Router, Routes } from '@angular/router';
 
-import { AppComponent } from './app.component';
-import { TopbarComponent } from './components/topbar/topbar.component';
-import { HomeComponent } from './components/home/home.component';
-import { AboutComponent } from './components/about/about.component';
-import { LogoComponent } from './components/logo/logo.component';
+import { 
+  LayoutComponent, 
+  TopbarComponent, 
+  HeaderComponent, 
+  CarouselComponent 
+} from './layouts';
+import { SharedModule } from './shared/shared.module';
 
-const routes: Routes  = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent, pathMatch: 'full' }
-];
+import { AppComponent } from './app.component';
+import { LogoComponent } from './components/logo/logo.component';
+import { WindowRef } from './shared/tools/window.service';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeModule } from './home';
+import { AboutModule } from './about';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LayoutComponent,
+    HeaderComponent,
     TopbarComponent,
-    HomeComponent,
-    AboutComponent,
+    CarouselComponent,
     LogoComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    RouterModule.forRoot(routes, {
-      enableTracing: true
-    })
+    BrowserModule.withServerTransition({ appId: 'blogYao' }),
+    AppRoutingModule,
+    HomeModule,
+    AboutModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-home',
-    template: 'app home page'
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.scss']
 })
 export class HomeComponent implements OnInit {
     constructor(private title: Title) { }
