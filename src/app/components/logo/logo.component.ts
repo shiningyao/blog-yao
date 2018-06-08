@@ -42,7 +42,7 @@ export class LogoComponent implements OnInit, AfterViewInit {
 }
 
 function animationStep(timestamp) {
-    if(!start) {
+    if (!start) {
         start = timestamp;
     }
     const ctx: CanvasRenderingContext2D = this.ctx;
@@ -53,8 +53,8 @@ function animationStep(timestamp) {
 }
 
 function animateCodingIcon(ctx: CanvasRenderingContext2D) {
-    if(codingIconY <= 101) {
-        if(codingIconSize > 0) {
+    if (codingIconY <= 101) {
+        if (codingIconSize > 0) {
             drawCodingIcon(ctx, 101);
             codingIconSize--;
         } else {
@@ -66,7 +66,7 @@ function animateCodingIcon(ctx: CanvasRenderingContext2D) {
 }
 
 function animateEyeBall(ctx: CanvasRenderingContext2D) {
-    if(eyeballRadius >= 13) {
+    if (eyeballRadius >= 13) {
         drawEyeWithTriangle(ctx);
     } else {
         drawEyeBall(ctx, eyeballRadius++);
@@ -75,7 +75,7 @@ function animateEyeBall(ctx: CanvasRenderingContext2D) {
 
 function drawCodingIcon(ctx: CanvasRenderingContext2D, y) {
     ctx.font = `${codingIconSize}px Arial`;
-    ctx.textAlign="center";
+    ctx.textAlign = 'center';
     ctx.fillText('</>', 100, y - (65 - codingIconSize - 13) / 2);
 }
 
