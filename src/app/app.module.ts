@@ -16,6 +16,7 @@ import { WindowRef } from './shared/tools/window.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home';
 import { AboutModule } from './about';
+import { ArticleModule } from './article';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { AboutModule } from './about';
     AppRoutingModule,
     HomeModule,
     AboutModule,
+    ArticleModule,
     SharedModule
   ],
   providers: [],

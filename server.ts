@@ -9,6 +9,7 @@ import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import * as compression from 'compression';
 
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist-server/main');
+const apiRoutes = require('./routes/article.js');
 
 enableProdMode();
 
@@ -29,6 +30,8 @@ app.set('views', distFolder);
 app.get('*.*', express.static(distFolder, {
     maxAge: '1y'
 }));
+
+app.use('/api', apiRoutes);
 
 app.get('*', (req, res) => {
     res.render('index', {req});
