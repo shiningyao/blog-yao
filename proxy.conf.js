@@ -1,14 +1,4 @@
-const express = require('express');
-const app = express();
-const port = '3000';
-
-const articleRoutes = require('./routes/article');
-
-app.use('/api', articleRoutes);
-
-app.listen(port, () => {
-  console.log(`API mock server is started on port: ${port}`);
-});
+const port = '8080';
 
 const PROXY_CONFIG = [
   {
@@ -16,7 +6,12 @@ const PROXY_CONFIG = [
           "/api"
       ],
       target: `http://localhost:${port}`,
-      secure: false
+      secure: false,
+      "pathRewrite": {
+        "^/api": "/api"
+      },
+      "changeOrigin": true,
+      "logLevel": "debug"
   }
 ];
 

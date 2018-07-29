@@ -7,7 +7,7 @@ import { HOME_ROUTE } from './home.route';
     declarations: [
         HomeComponent
     ],
-    imports: [ 
+    imports: [
         RouterModule.forChild([HOME_ROUTE])
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

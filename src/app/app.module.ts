@@ -1,12 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule, makeStateKey, TransferState } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Router, Routes } from '@angular/router';
+import { ApolloModule, Apollo } from 'apollo-angular';
+import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
+import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 
-import { 
-  LayoutComponent, 
-  TopbarComponent, 
-  HeaderComponent, 
-  CarouselComponent 
+import {
+  LayoutComponent,
+  TopbarComponent,
+  HeaderComponent,
+  CarouselComponent
 } from './layouts';
 import { SharedModule } from './shared/shared.module';
 
@@ -17,6 +20,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home';
 import { AboutModule } from './about';
 import { ArticleModule } from './article';
+
+const STATE_KEY = makeStateKey<any>('apollo.state');
 
 @NgModule({
   declarations: [
@@ -33,9 +38,51 @@ import { ArticleModule } from './article';
     HomeModule,
     AboutModule,
     ArticleModule,
-    SharedModule
+    SharedModule,
+    ApolloModule,
+    HttpLinkModule,
+    BrowserTransferStateModule,
+    HttpClientModule,
+    HttpClientXsrfModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  cache: InMemoryCache;
+
+  constructor(
+    apollo: Apollo,
+    httpLink: HttpLink,
+    private readonly transferState: TransferState
+  ) {
+    this.cache = new InMemoryCache();
+
+    apollo.create({
+      link: httpLink.create({
+        uri: '/api/query'
+      }),
+      cache: this.cache
+    });
+
+    const isBrowser = this.transferState.hasKey<any>(STATE_KEY);
+
+    if (isBrowser) {
+      this.onBrowser();
+    } else {
+      this.onServer();
+    }
+  }
+
+  onBrowser() {
+    const state = this.transferState.get<any>(STATE_KEY, null);
+    this.cache.restore(state);
+  }
+
+  onServer() {
+    this.transferState.onSerialize(STATE_KEY, () => {
+      return this.cache.extract();
+    });
+  }
+}
