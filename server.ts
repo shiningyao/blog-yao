@@ -3,6 +3,7 @@ import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 import { renderModuleFactory } from '@angular/platform-server';
 import * as express from 'express';
+import * as proxy from 'http-proxy-middleware';
 import { readFileSync } from 'fs';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
@@ -14,6 +15,13 @@ const apiRoutes = require('./routes/article.js');
 enableProdMode();
 
 const app = express();
+const apiProxy = proxy({
+    target: 'http://localhost:8080',
+    changeOrigin: true,
+    pathRewrite: {
+        '^/api' : '/api'
+    }
+});
 app.use(compression());
 
 const indexHtml = readFileSync(__dirname + '/dist/index.html', 'UTF-8');
@@ -31,6 +39,8 @@ app.get('*.*', express.static(distFolder, {
     maxAge: '1y'
 }));
 
+
+app.use('/api', apiProxy);
 app.use('/api', apiRoutes);
 
 app.get('*', (req, res) => {

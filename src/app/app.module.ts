@@ -57,6 +57,9 @@ export class AppModule {
     httpLink: HttpLink,
     private readonly transferState: TransferState
   ) {
+    // For conveniently, may import a relevant module to 
+    // achieve the goal below codes to.
+    // Can reference the apollo official website.
     this.cache = new InMemoryCache();
 
     apollo.create({

@@ -14,7 +14,8 @@
     ],
     "paths": {
       "@/*": ["src/app/*"],
-      "#/*": ["src/assets/*"]
+      "#/*": ["src/assets/*"],
+      "stream": ["node_modules/readable-stream/readable.js"]
     },
     "lib": [
       "es2017",

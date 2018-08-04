@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Apollo, QueryRef } from 'apollo-angular';
+import { ActivatedRoute } from '@angular/router';
+import gql from 'graphql-tag';
 
 @Component({
     selector: 'article-detail',
@@ -6,7 +9,42 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./detail.scss']
 })
 export class ArticleDetailComponent implements OnInit {
-    constructor() { }
+    
+    private postRef: QueryRef<any>;
+    private article = {
+        author: {}
+    };
+
+    constructor(
+        private readonly apollo: Apollo,
+        private readonly route: ActivatedRoute
+    ) {
+        this.route.params.subscribe(params => {
+            const id = params.id;
+            this.postRef = apollo.watchQuery({
+                query: gql`
+                    query getArticle($id: String) {
+                        article(id: $id) {
+                            id,
+                            title,
+                            content,
+                            author {
+                                id,
+                                login
+                            }
+                        }
+                    }
+                `,
+                variables: {
+                    id
+                }
+            });
+
+            this.postRef.valueChanges.subscribe(res => {
+                this.article = res.data.article;
+            });
+        });
+    }
 
     ngOnInit(): void { }
 }

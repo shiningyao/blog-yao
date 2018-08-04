@@ -185,21 +185,23 @@ ul.entry-meta {
     margin-top: 50px;
 }
 
-.readmore-blog {
-    color: #ff7a40;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 60px 0 20px;
-    font-style: italic;
-    display: inline-block;
-    transition: 300ms;
-}
+:host ::ng-deep {
+    a.more-link {
+        display: block;
+        width: 225px;
+        margin: 0 auto;
+    }
 
-a.more-link {
-    display: block;
-    width: 225px;
-    margin: 0 auto;
+    .readmore-blog {
+        color: #ff7a40;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin: 60px 0 20px;
+        font-style: italic;
+        display: inline-block;
+        transition: 300ms;
+    }
 }
 
 .blog-share-button {

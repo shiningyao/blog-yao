@@ -33,9 +33,11 @@
     "font-awesome": "^4.7.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
+    "moment": "^2.22.2",
     "normalize.css": "^8.0.0",
     "rxjs": "^6.2.1",
     "tiny-slider-yao": "^2.6.0",
+    "truncate-html": "^1.0.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
@@ -49,6 +51,7 @@
     "codelyzer": "~4.2.1",
     "compression": "^1.7.2",
     "hoek": "^4.2.1",
+    "http-proxy-middleware": "^0.18.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
