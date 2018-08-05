@@ -16,12 +16,12 @@ export class HomeComponent implements OnInit {
     constructor(
         private title: Title,
         private readonly apollo: Apollo
-    ) {  
+    ) {
     }
 
     truncateHtmlOptions(postId: string) {
         return {
-            ellipsis: `
+            ellipsis: `...
             <a href="/article/${postId}" class="more-link">
                 <span class="readmore-blog">
                     Continue reading
@@ -29,8 +29,8 @@ export class HomeComponent implements OnInit {
                 </span>
             </a>
             `
-        }
-    };
+        };
+    }
 
     ngOnInit(): void {
         this.title.setTitle('BlogYao');
