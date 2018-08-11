@@ -1,5 +1,6 @@
-import { Component, OnInit, ElementRef, AfterViewInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, AfterViewInit, Input, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
 import { WindowRef } from '../../shared/tools/window.service';
+import { isPlatformBrowser } from '@angular/common';
 
 let start = null;
 let codingIconY = 200;
@@ -20,7 +21,11 @@ export class LogoComponent implements OnInit, AfterViewInit {
     }) logoCanvas: ElementRef;
     ctx: CanvasRenderingContext2D;
 
-    constructor(private elementRef: ElementRef, private windowRef: WindowRef) {
+    constructor(
+        private elementRef: ElementRef, 
+        private windowRef: WindowRef,
+        @Inject(PLATFORM_ID) private platformId: Object
+    ) {
     }
 
     ngOnInit(): void {
@@ -28,11 +33,14 @@ export class LogoComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        const element: HTMLDivElement = this.elementRef.nativeElement;
-        this.ctx = this.logoCanvas.nativeElement.getContext('2d');
-        this.ctx.strokeStyle = '#000000';
-        this.ctx.scale(this.width / 200, this.height / 200);
-        this.animation();
+        console.log(isPlatformBrowser(this.platformId));
+        if(isPlatformBrowser(this.platformId)) {
+            const element: HTMLDivElement = this.elementRef.nativeElement;
+            this.ctx = this.logoCanvas.nativeElement.getContext('2d');
+            this.ctx.strokeStyle = '#000000';
+            this.ctx.scale(this.width / 200, this.height / 200);
+            this.animation();
+        }
     }
 
     animation() {

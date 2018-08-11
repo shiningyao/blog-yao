@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Apollo, QueryRef } from 'apollo-angular';
+import { Apollo, QueryRef } from '@/shared/apollo';
 import { ActivatedRoute } from '@angular/router';
 import gql from 'graphql-tag';
 
@@ -11,9 +11,7 @@ import gql from 'graphql-tag';
 export class ArticleDetailComponent implements OnInit {
     
     private postRef: QueryRef<any>;
-    private article = {
-        author: {}
-    };
+    article: any;
 
     constructor(
         private readonly apollo: Apollo,

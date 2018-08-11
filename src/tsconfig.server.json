@@ -3,7 +3,12 @@
   "compilerOptions": {
     "outDir": "../out-tsc/app-server",
     "baseUrl": ".",
-    "module": "commonjs"
+    "module": "commonjs",
+    "paths": {
+      "@/*": ["app/*"],
+      "#/*": ["assets/*"],
+      "stream": ["../node_modules/readable-stream/readable.js"]
+    }
   },
   "angularCompilerOptions": {
     "entryModule": "app/app.server.module#AppServerModule"

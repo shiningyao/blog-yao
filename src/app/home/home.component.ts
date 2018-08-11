@@ -1,6 +1,7 @@
-import { Apollo, QueryRef } from 'apollo-angular';
+// import { Apollo, QueryRef } from 'apollo-angular';
 import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
+import { Apollo, QueryRef } from '@/shared/apollo';
 import gql from 'graphql-tag';
 
 @Component({

@@ -22,5 +22,9 @@
       "dom",
       "esnext.asynciterable"
     ]
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "node_modules/zone.js/dist/zone.js.d.ts"
+  ]
 }

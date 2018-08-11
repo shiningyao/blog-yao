@@ -3,11 +3,19 @@ import { ServerModule } from '@angular/platform-server';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
+import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
+import { Apollo } from '@/shared/apollo';
+import { HttpLink } from '@/shared/apollo/link-http';
 
 @NgModule({
   imports: [
     AppModule,
     ServerModule,
+    ModuleMapLoaderModule
+  ],
+  providers: [
+    Apollo,
+    HttpLink
   ],
   bootstrap: [AppComponent],
 })

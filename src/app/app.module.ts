@@ -1,9 +1,12 @@
-import { BrowserModule, BrowserTransferStateModule, makeStateKey, TransferState } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { ApolloModule, Apollo } from 'apollo-angular';
+import { BrowserModule, BrowserTransferStateModule, makeStateKey } from '@angular/platform-browser';
+import { NgModule, Inject, PLATFORM_ID, APP_ID } from '@angular/core';
+// import { ApolloModule, Apollo } from 'apollo-angular';
+// import ApolloClient from 'apollo-client';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
-import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
+// import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import { TransferHttpCacheModule } from '@nguniversal/common';
 
 import {
   LayoutComponent,
@@ -20,6 +23,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home';
 import { AboutModule } from './about';
 import { ArticleModule } from './article';
+import { Apollo } from '@/shared/apollo';
+import { HttpLink, HttpLinkModule } from '@/shared/apollo/link-http';
+import { ModuleWithProviders } from '../../node_modules/@angular/compiler/src/core';
 
 const STATE_KEY = makeStateKey<any>('apollo.state');
 
@@ -39,8 +45,8 @@ const STATE_KEY = makeStateKey<any>('apollo.state');
     AboutModule,
     ArticleModule,
     SharedModule,
-    ApolloModule,
     HttpLinkModule,
+    TransferHttpCacheModule,
     BrowserTransferStateModule,
     HttpClientModule,
     HttpClientXsrfModule
@@ -53,39 +59,22 @@ export class AppModule {
   cache: InMemoryCache;
 
   constructor(
+    @Inject(PLATFORM_ID) private readonly platformId: Object,
+    @Inject(APP_ID) private readonly appId: string,
     apollo: Apollo,
-    httpLink: HttpLink,
-    private readonly transferState: TransferState
+    httpLink: HttpLink
   ) {
-    // For conveniently, may import a relevant module to 
-    // achieve the goal below codes to.
-    // Can reference the apollo official website.
-    this.cache = new InMemoryCache();
+    const platform = isPlatformBrowser(platformId) ?
+      'in the browser' : 'on the server';
+
+    console.log(`Running ${platform} with appId=${appId}`);
 
     apollo.create({
       link: httpLink.create({
         uri: '/api/query'
       }),
-      cache: this.cache
-    });
-
-    const isBrowser = this.transferState.hasKey<any>(STATE_KEY);
-
-    if (isBrowser) {
-      this.onBrowser();
-    } else {
-      this.onServer();
-    }
-  }
-
-  onBrowser() {
-    const state = this.transferState.get<any>(STATE_KEY, null);
-    this.cache.restore(state);
-  }
-
-  onServer() {
-    this.transferState.onSerialize(STATE_KEY, () => {
-      return this.cache.extract();
+      cache: new InMemoryCache()
     });
   }
+
 }
