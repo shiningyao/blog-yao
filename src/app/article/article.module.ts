@@ -1,21 +1,22 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ARTICLE_ROUTE } from './article.route';
+import { ARTICLE_ROUTES } from './article.route';
 import { ArticleDetailComponent } from './detail/detail.component';
 import { SharedModule } from '@/shared/shared.module';
 import { CommonModule } from '@angular/common';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { Apollo } from '@/shared/apollo';
-import { HttpLink } from '@/shared/apollo/link-http';
+import { DetailResolver } from '@/article/detail/detail.resolver';
 
 @NgModule({
     declarations: [
         ArticleDetailComponent
     ],
-    imports: [ 
-        RouterModule.forRoot([ARTICLE_ROUTE]),
+    imports: [
+        RouterModule.forRoot(ARTICLE_ROUTES),
         SharedModule,
         CommonModule
+    ],
+    providers: [
+        DetailResolver
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

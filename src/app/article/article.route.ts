@@ -1,7 +1,14 @@
-import { Route } from "@angular/router";
-import { ArticleDetailComponent } from "./detail/detail.component";
+import { Routes } from '@angular/router';
+import { ArticleDetailComponent } from './detail/detail.component';
+import { DetailResolver } from '@/article/detail/detail.resolver';
 
-export const ARTICLE_ROUTE: Route = {
+export const ARTICLE_ROUTES: Routes = [{
     path: 'article/:id',
-    component: ArticleDetailComponent
-}
+    component: ArticleDetailComponent,
+    data: {
+        showCarousel: false
+    },
+    resolve: {
+        post: DetailResolver
+    }
+}];

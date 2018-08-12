@@ -16,7 +16,7 @@ import {
   Context,
   mergeHeaders,
   prioritize,
-} from 'apollo-angular-link-http-common';
+} from '../link-http-common';
 
 // XXX find a better name for it
 export class HttpLinkHandler extends ApolloLink {

@@ -22,7 +22,7 @@ export class LogoComponent implements OnInit, AfterViewInit {
     ctx: CanvasRenderingContext2D;
 
     constructor(
-        private elementRef: ElementRef, 
+        private elementRef: ElementRef,
         private windowRef: WindowRef,
         @Inject(PLATFORM_ID) private platformId: Object
     ) {
@@ -33,8 +33,7 @@ export class LogoComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        console.log(isPlatformBrowser(this.platformId));
-        if(isPlatformBrowser(this.platformId)) {
+        if (isPlatformBrowser(this.platformId)) {
             const element: HTMLDivElement = this.elementRef.nativeElement;
             this.ctx = this.logoCanvas.nativeElement.getContext('2d');
             this.ctx.strokeStyle = '#000000';

@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
 import { HOME_ROUTE } from './home.route';
 import { SharedModule } from '../shared/shared.module';
+import { HomeResolver } from '@/home/home.resolver';
 
 @NgModule({
     declarations: [
@@ -13,6 +14,9 @@ import { SharedModule } from '../shared/shared.module';
         RouterModule.forChild([HOME_ROUTE]),
         CommonModule,
         SharedModule
+    ],
+    providers: [
+        HomeResolver
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -1,5 +1,5 @@
-import { Route } from "@angular/router";
-import { HeaderComponent } from "./header.component";
+import { Route } from '@angular/router';
+import { HeaderComponent } from './header.component';
 // import { HomeComponent } from "../../../home/home.component";
 // import { AboutComponent } from "../../../about/about.component";
 
@@ -8,8 +8,8 @@ import { HeaderComponent } from "./header.component";
 //     { path: 'about', component: AboutComponent, pathMatch: 'full' }
 // ];
 
-export const headerRoutes: Route  = { 
-    path: '', 
+export const headerRoutes: Route  = {
+    path: '',
     component: HeaderComponent,
     outlet: 'header'
 };

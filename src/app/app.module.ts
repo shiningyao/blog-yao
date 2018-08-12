@@ -23,9 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home';
 import { AboutModule } from './about';
 import { ArticleModule } from './article';
-import { Apollo } from '@/shared/apollo';
+import { Apollo, ApolloModule } from '@/shared/apollo';
 import { HttpLink, HttpLinkModule } from '@/shared/apollo/link-http';
-import { ModuleWithProviders } from '../../node_modules/@angular/compiler/src/core';
 
 const STATE_KEY = makeStateKey<any>('apollo.state');
 
@@ -40,13 +39,14 @@ const STATE_KEY = makeStateKey<any>('apollo.state');
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'blogYao' }),
+    TransferHttpCacheModule,
     AppRoutingModule,
     HomeModule,
     AboutModule,
     ArticleModule,
-    SharedModule,
+    SharedModule.forRoot(),
+    ApolloModule,
     HttpLinkModule,
-    TransferHttpCacheModule,
     BrowserTransferStateModule,
     HttpClientModule,
     HttpClientXsrfModule
@@ -56,7 +56,7 @@ const STATE_KEY = makeStateKey<any>('apollo.state');
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  cache: InMemoryCache;
+  readonly API_ROOT = 'http://localhost:3000';
 
   constructor(
     @Inject(PLATFORM_ID) private readonly platformId: Object,
@@ -71,7 +71,7 @@ export class AppModule {
 
     apollo.create({
       link: httpLink.create({
-        uri: '/api/query'
+        uri: this.API_ROOT + '/api/query'
       }),
       cache: new InMemoryCache()
     });

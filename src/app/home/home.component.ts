@@ -1,8 +1,10 @@
-// import { Apollo, QueryRef } from 'apollo-angular';
-import { Title } from '@angular/platform-browser';
-import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Title, TransferState, makeStateKey } from '@angular/platform-browser';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { Apollo, QueryRef } from '@/shared/apollo';
 import gql from 'graphql-tag';
+import { isPlatformServer } from '@angular/common';
 
 @Component({
     selector: 'app-home',
@@ -15,8 +17,12 @@ export class HomeComponent implements OnInit {
     posts = [];
 
     constructor(
-        private title: Title,
-        private readonly apollo: Apollo
+        private readonly title: Title,
+        @Inject(PLATFORM_ID) private readonly platformId: Object,
+        private route: ActivatedRoute,
+        private readonly apollo: Apollo,
+        private readonly http: HttpClient,
+        private readonly transferState: TransferState
     ) {
     }
 
@@ -35,30 +41,37 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.title.setTitle('BlogYao');
-        this.postsRef = this.apollo.watchQuery<any>({
-            query: gql`
-                query fetchArticles($status: ArticleStatus) {
-                    articles(status: $status) {
-                        id
-                        title,
-                        content,
-                        publishDate,
-                        author {
-                            id,
-                            login
-                        }
-                    }
-                }
-            `,
-            variables: {
-                status: 'ONLINE'
-            }
-        });
+        this.posts = this.route.snapshot.data['posts'];
+        // this.postsRef = this.apollo.watchQuery<any>({
+        //     query: gql`
+        //         query fetchArticles($status: ArticleStatus) {
+        //             articles(status: $status) {
+        //                 id
+        //                 title,
+        //                 content,
+        //                 publishDate,
+        //                 author {
+        //                     id,
+        //                     login
+        //                 }
+        //             }
+        //         }
+        //     `,
+        //     variables: {
+        //         status: 'ONLINE'
+        //     }
+        // });
 
-        this.postsRef.valueChanges.subscribe(
-            res => {
-                this.posts = res.data.articles;
-            }
-        );
+        // this.postsRef.valueChanges.subscribe(
+        //     res => {
+        //         this.posts = res.data.articles;
+        //         // if (isPlatformServer(this.platformId)) {
+        //         //     this.transferState.set(HOME_POSTS_KEY, this.posts);
+        //         // }
+        //     },
+        //     error => {
+        //         console.log(error);
+        //     }
+        // );
      }
 }

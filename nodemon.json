@@ -2,6 +2,6 @@
     "verbose": true,
     "ignore": ["*.test.js", "*.spec.js"],
     "execMap": {
-        "ts": "ts-node"
+        "ts": "node -r ts-node/register"
     }
 }
