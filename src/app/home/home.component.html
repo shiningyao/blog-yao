@@ -1,3 +1,4 @@
+<app-carousel></app-carousel>
 <div class="container">
     <div class="main-content-inner">
         <article *ngFor="let post of posts">
@@ -85,6 +86,24 @@
                 </ul>
             </div>
         </article>
+        <nav role="navigation" class="post-navigation">
+            <ul class="pager post-nav">
+                <li class="nav-previous previous" rel="prev">
+                    <a href="javascript:void(0)" title="OLDER POSTS" (click)="olderPosts()">
+                        <span class="meta-nav">←</span>
+                        <div class="meta-title">OLDER POSTS</div>
+                    </a> 
+                </li>
+                <li class="nav-next next" rel="next" *ngIf="pager.page > 0">
+                    <a href="javascript:void(0)" title="NEWER POSTS" (click)="newerPosts()">
+                        <div class="meta-title">
+                            NEWER POSTS
+                        </div>
+                        <span class="meta-nav">→</span>
+                    </a> 
+                </li>
+            </ul>
+        </nav>
     </div>
     <div class="sidebar">
         <div class="sidebar-padder">
@@ -240,22 +259,7 @@
                     TAG CLOUD
                 </div>
                 <div class="widget-body">
-                    <div class="tag-cloud">
-                        <a href="">blog</a>
-                        <a href="">clean</a>
-                        <a href="">design</a>
-                        <a href="">yaoshen</a>
-                        <a href="">gallery</a>
-                        <a href="">magizine</a>
-                        <a href="">music</a>
-                        <a href="">news</a>
-                        <a href="">post</a>
-                        <a href="">quote</a>
-                        <a href="">smart</a>
-                        <a href="">theme</a>
-                        <a href="">video</a>
-                        <a href="">wordpress</a>
-                    </div>
+                    <tag-cloud></tag-cloud>
                 </div>
             </div>
         </div>

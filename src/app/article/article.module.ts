@@ -11,7 +11,7 @@ import { DetailResolver } from '@/article/detail/detail.resolver';
         ArticleDetailComponent
     ],
     imports: [
-        RouterModule.forRoot(ARTICLE_ROUTES),
+        RouterModule.forChild(ARTICLE_ROUTES),
         SharedModule,
         CommonModule
     ],

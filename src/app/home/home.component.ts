@@ -1,29 +1,49 @@
-import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Title, TransferState, makeStateKey } from '@angular/platform-browser';
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { Apollo, QueryRef } from '@/shared/apollo';
-import gql from 'graphql-tag';
-import { isPlatformServer } from '@angular/common';
+import { ActivatedRoute, Router, Scroll } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { Component, OnInit, OnDestroy, PLATFORM_ID, Inject } from '@angular/core';
+import { QueryRef } from '@/shared/apollo';
+import { ViewportScroller, isPlatformBrowser } from '@angular/common';
+import { Subscription, fromEvent } from 'rxjs';
+import { Pageable } from '@/shared/interfaces/page';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.scss']
 })
-export class HomeComponent implements OnInit {
-
+export class HomeComponent implements OnInit, OnDestroy {
+    
     postsRef: QueryRef<any>;
     posts = [];
+    routerEventsSubscription: Subscription;
+    scrollEventSubscription: Subscription;
+    queryEventSubscription: Subscription;
+    pager: Pageable = {
+        page: 0,
+        size: 4
+    };
+    static scrollPosition: [number, number] = [0, 0];
 
     constructor(
         private readonly title: Title,
-        @Inject(PLATFORM_ID) private readonly platformId: Object,
-        private route: ActivatedRoute,
-        private readonly apollo: Apollo,
-        private readonly http: HttpClient,
-        private readonly transferState: TransferState
+        @Inject(PLATFORM_ID) readonly platformId,
+        route: ActivatedRoute,
+        router: Router,
+        private readonly viewportScroller: ViewportScroller
     ) {
+        const { postsRef, posts } = route.snapshot.data['postsAndQuery'];
+        this.postsRef = postsRef;
+        this.posts = posts;
+        this.routerEventsSubscription = router.events.subscribe((e) => {
+            if(e instanceof Scroll) {
+                viewportScroller.scrollToPosition(HomeComponent.scrollPosition);
+            }
+        });
+        if(isPlatformBrowser(platformId)) {
+            this.scrollEventSubscription = fromEvent(document, 'scroll').subscribe(() => {
+                HomeComponent.scrollPosition = viewportScroller.getScrollPosition();
+            });
+        }
     }
 
     truncateHtmlOptions(postId: string) {
@@ -41,37 +61,46 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.title.setTitle('BlogYao');
-        this.posts = this.route.snapshot.data['posts'];
-        // this.postsRef = this.apollo.watchQuery<any>({
-        //     query: gql`
-        //         query fetchArticles($status: ArticleStatus) {
-        //             articles(status: $status) {
-        //                 id
-        //                 title,
-        //                 content,
-        //                 publishDate,
-        //                 author {
-        //                     id,
-        //                     login
-        //                 }
-        //             }
-        //         }
-        //     `,
-        //     variables: {
-        //         status: 'ONLINE'
-        //     }
-        // });
+        if(!this.posts) {
+            this.queryEventSubscription = this.postsRef.valueChanges.subscribe((res) => {
+                this.posts = res.data.articles;
+            });
+        }
+    }
 
-        // this.postsRef.valueChanges.subscribe(
-        //     res => {
-        //         this.posts = res.data.articles;
-        //         // if (isPlatformServer(this.platformId)) {
-        //         //     this.transferState.set(HOME_POSTS_KEY, this.posts);
-        //         // }
-        //     },
-        //     error => {
-        //         console.log(error);
-        //     }
-        // );
-     }
+    ngOnDestroy(): void {
+        this.routerEventsSubscription.unsubscribe();
+        this.scrollEventSubscription.unsubscribe();
+        if(this.queryEventSubscription) {
+            this.queryEventSubscription.unsubscribe();
+        }
+    }
+
+    newerPosts() {
+        if(this.pager.page > 0) {
+            alert('prev page is ' + --this.pager.page);
+        }
+    }
+
+    olderPosts() {
+        this.pager.page++;
+        this.fetchMore().then(res => {
+            this.posts = res.data.articles;
+            this.viewportScroller.scrollToPosition([0, 0]);
+        });
+    }
+
+    fetchMore() {
+        return this.postsRef.fetchMore({
+            variables: {
+                pageable: this.pager
+            },
+            updateQuery: (prev, {fetchMoreResult}) => {
+                if(!fetchMoreResult) {
+                    return prev;
+                }
+                return fetchMoreResult;
+            }
+        });
+    }
 }

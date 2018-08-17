@@ -2,6 +2,10 @@ body {
     background-image: url(./assets/img/skin.png);
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .container {
     &:before, &:after {
         display: table;

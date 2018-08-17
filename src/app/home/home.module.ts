@@ -18,6 +18,9 @@ import { HomeResolver } from '@/home/home.resolver';
     providers: [
         HomeResolver
     ],
+    exports: [
+        HomeComponent
+    ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeModule {}

@@ -4,17 +4,23 @@ import { TruncateHtmlPipe } from '../shared/pipes/truncate-html.pipe';
 import { TimezoneDatePipe } from '../shared/pipes/timezoneDate';
 import { PROVIDERS as APOLLO_HTTP_LINK_PROVIDERS } from '@/shared/apollo/link-http';
 import { PROVIDERS as APOLLO_PROVIDERS } from '@/shared/apollo/apollo.module';
+import { LogoComponent } from '@/shared/components/logo/logo.component';
+import { TagCloudComponent } from '@/shared/components/tagcloud/tagcloud.component';
 
 @NgModule({
     declarations: [
         SafeHtmlPipe,
         TruncateHtmlPipe,
-        TimezoneDatePipe
+        TimezoneDatePipe,
+        LogoComponent,
+        TagCloudComponent
     ],
     exports: [
         SafeHtmlPipe,
         TruncateHtmlPipe,
-        TimezoneDatePipe
+        TimezoneDatePipe,
+        LogoComponent,
+        TagCloudComponent
     ]
 })
 export class SharedModule {

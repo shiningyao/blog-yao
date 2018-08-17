@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
-import { headerRoutes } from './layouts/header';
+import { headerRoutes, footerRoutes } from './layouts';
 import { DEBUG_INFO_ENABLED } from './app.constants';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 
 const LAYOUT_ROUTES = [
-    headerRoutes
+    ...headerRoutes,
+    ...footerRoutes
 ];
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(LAYOUT_ROUTES, { useHash: false , enableTracing: DEBUG_INFO_ENABLED })
+        RouterModule.forRoot(LAYOUT_ROUTES, {
+            useHash: false,
+            enableTracing: DEBUG_INFO_ENABLED,
+            preloadingStrategy: PreloadAllModules,
+            scrollPositionRestoration: 'enabled'
+        })
     ],
     exports: [
         RouterModule

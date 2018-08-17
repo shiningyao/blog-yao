@@ -1,5 +1,5 @@
-<div class="container">
-    <article *ngIf="article">
+<div class="container" *ngIf="article">
+    <article>
         <header class="page-header">
             <span class="meta-category">
                 <a href>Blog</a>
@@ -84,4 +84,262 @@
             </ul>
         </div>
     </article>
+    <nav role="navigation" class="post-navigation">
+        <ul class="pager post-nav">
+            <li class="nav-previous previous" rel="prev" *ngIf="article.prev">
+                <a routerLink="/article/{{article.prev.id}}" title="{{article.prev.title}}">
+                    <span class="meta-nav">←</span>
+                    <div class="meta-title">{{article.prev.title}}</div>
+                </a> 
+            </li>
+            <li class="nav-next next" rel="next" *ngIf="article.next">
+                <a routerLink="/article/{{article.next.id}}" title="{{article.next.title}}">
+                    <div class="meta-title">
+                        {{article.next.title}}
+                    </div>
+                    <span class="meta-nav">→</span>
+                </a> 
+            </li>
+        </ul>
+    </nav>
+    <div class="post-related">
+        <div class="related-title">
+            <h3>Related Post</h3>
+        </div>
+        <div>
+            <div class="item-related col-sm-3">
+                <a href="javascript:void(0)">
+                    <img width="250" height="160" src="http://themewing.com/wordpress/easyblog/wp-content/uploads/2015/01/demo2-250x160.jpg" alt="">
+                </a>
+                <h4>
+                    <a href="javascript:void(0)">Link Blog Post Format</a>
+                </h4>
+                <time class="entry-date">25 Dec,  2014</time>
+            </div>
+            <div class="item-related col-sm-3">
+                <h4>
+                    <a href="javascript:void(0)">Audio Blog Post Format</a>
+                </h4>
+                <time class="entry-date">26 Dec,  2014</time>
+            </div>
+            <div class="item-related col-sm-3">
+                <h4>
+                    <a href="javascript:void(0)">Exclusive Gallery Post</a>
+                </h4>
+                <time class="entry-date">26 Dec,  2014</time>
+            </div>
+            <div class="item-related col-sm-3">
+                <a href="javascript:void(0)">
+                    <img width="250" height="160" src="http://themewing.com/wordpress/easyblog/wp-content/uploads/2014/12/dummy_image19-250x160.jpg" alt="">
+                </a>
+                <h4>
+                    <a href="javascript:void(0)"></a>
+                </h4>
+                <time class="entry-date">26 Dec,  2014</time> 
+            </div>
+        </div>
+    </div>
+    <div class="comments-area">
+        <header class="page-header">
+            <h3 class="comments-title">
+                3 Comments on "<span>{{article.title}}</span>"
+            </h3>
+            <ol class="comment-list media-list">
+                <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1 parent">
+                    <article class="comment-body media">
+                        <div class="pull-left author-comment">
+                            <img src="http://2.gravatar.com/avatar/5ecf4640d77d209c5eeffc57651851c7?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo" height="60" width="60" />
+                        </div>
+                        <div class="media-body">
+                            <div class="media-body-wrap">
+                                <div class="comment-area">
+                                    <h5 class="media-heading">
+                                        <span class="fn">admin</span>
+                                        <span class="says">says:</span>
+                                    </h5>
+                                    <div class="comment-meta">
+                                        <a href="javascript:void(0)">
+                                            <time>January 3, 2015 at 4:58 pm</time>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="comment-content">
+                                    <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
+                                </div>
+                                <footer class="reply comment-reply">
+                                    <a href="javascript:void(0)" class="comment-reply-login">
+                                        Log in to Reply
+                                    </a>
+                                </footer>
+                            </div>
+                        </div>
+                    </article>
+                    <ul class="children">
+                        <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 parent">
+                            <article class="comment-body media">
+                                <div class="pull-left author-comment">
+                                    <img src="http://2.gravatar.com/avatar/5ecf4640d77d209c5eeffc57651851c7?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo" height="60" width="60" />
+                                </div> 
+                                <div class="media-body">
+                                    <div class="media-body-wrap">
+                                        <div class="comment-area">
+                                            <h5 class="media-heading">
+                                                <span class="fn">admin</span>
+                                                <span class="says">says:</span>
+                                            </h5>
+                                            <div class="comment-meta">
+                                                <a href="javascript:void(0)">
+                                                    <time>January 3, 2015 at 4:58 pm</time>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="comment-content">
+                                            <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
+                                        </div>
+                                        <footer class="reply comment-reply">
+                                            <a href="javascript:void(0)" class="comment-reply-login">
+                                                Log in to Reply
+                                            </a>
+                                        </footer>
+                                    </div>
+                                </div>
+                            </article>
+                            <ul class="children">
+                                <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 parent">
+                                    <article class="comment-body media">
+                                        <div class="pull-left author-comment">
+                                            <img src="http://2.gravatar.com/avatar/5ecf4640d77d209c5eeffc57651851c7?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo" height="60" width="60" />
+                                        </div> 
+                                        <div class="media-body">
+                                            <div class="media-body-wrap">
+                                                <div class="comment-area">
+                                                    <h5 class="media-heading">
+                                                        <span class="fn">admin</span>
+                                                        <span class="says">says:</span>
+                                                    </h5>
+                                                    <div class="comment-meta">
+                                                        <a href="javascript:void(0)">
+                                                            <time>January 3, 2015 at 4:58 pm</time>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-content">
+                                                    <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
+                                                </div>
+                                                <footer class="reply comment-reply">
+                                                    <a href="javascript:void(0)" class="comment-reply-login">
+                                                        Log in to Reply
+                                                    </a>
+                                                </footer>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1 parent">
+                    <article class="comment-body media">
+                        <div class="pull-left author-comment">
+                            <img src="http://2.gravatar.com/avatar/5ecf4640d77d209c5eeffc57651851c7?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo" height="60" width="60" />
+                        </div>
+                        <div class="media-body">
+                            <div class="media-body-wrap">
+                                <div class="comment-area">
+                                    <h5 class="media-heading">
+                                        <span class="fn">admin</span>
+                                        <span class="says">says:</span>
+                                    </h5>
+                                    <div class="comment-meta">
+                                        <a href="javascript:void(0)">
+                                            <time>January 3, 2015 at 4:58 pm</time>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="comment-content">
+                                    <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
+                                </div>
+                                <footer class="reply comment-reply">
+                                    <a href="javascript:void(0)" class="comment-reply-login">
+                                        Log in to Reply
+                                    </a>
+                                </footer>
+                            </div>
+                        </div>
+                    </article>
+                    <ul class="children">
+                        <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 parent">
+                            <article class="comment-body media">
+                                <div class="pull-left author-comment">
+                                    <img src="http://2.gravatar.com/avatar/5ecf4640d77d209c5eeffc57651851c7?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo" height="60" width="60" />
+                                </div> 
+                                <div class="media-body">
+                                    <div class="media-body-wrap">
+                                        <div class="comment-area">
+                                            <h5 class="media-heading">
+                                                <span class="fn">admin</span>
+                                                <span class="says">says:</span>
+                                            </h5>
+                                            <div class="comment-meta">
+                                                <a href="javascript:void(0)">
+                                                    <time>January 3, 2015 at 4:58 pm</time>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="comment-content">
+                                            <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
+                                        </div>
+                                        <footer class="reply comment-reply">
+                                            <a href="javascript:void(0)" class="comment-reply-login">
+                                                Log in to Reply
+                                            </a>
+                                        </footer>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                        <li class="comment byuser comment-author-admin bypostauthor odd alt depth-2 parent">
+                            <article class="comment-body media">
+                                <div class="pull-left author-comment">
+                                    <img src="http://2.gravatar.com/avatar/5ecf4640d77d209c5eeffc57651851c7?s=60&amp;d=mm&amp;r=g" class="avatar avatar-60 photo" height="60" width="60" />
+                                </div> 
+                                <div class="media-body">
+                                    <div class="media-body-wrap">
+                                        <div class="comment-area">
+                                            <h5 class="media-heading">
+                                                <span class="fn">admin</span>
+                                                <span class="says">says:</span>
+                                            </h5>
+                                            <div class="comment-meta">
+                                                <a href="javascript:void(0)">
+                                                    <time>January 3, 2015 at 4:58 pm</time>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="comment-content">
+                                            <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
+                                        </div>
+                                        <footer class="reply comment-reply">
+                                            <a href="javascript:void(0)" class="comment-reply-login">
+                                                Log in to Reply
+                                            </a>
+                                        </footer>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="comment-respond">
+                <h3 class="comment-reply-title">
+                    Leave a Reply
+                </h3>
+                <p class="must-log-in">
+                    You must be <a href="javascript:void(0)">logged in</a> to post a comment.
+                </p>
+            </div>
+        </header>
+    </div>
 </div>

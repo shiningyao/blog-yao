@@ -1,5 +1,4 @@
 .main-content {
-    margin-bottom: 30px;
     position: relative;
     background-color: #ffffff;
     &:before, &:after {
@@ -21,6 +20,11 @@
     &:after {
         right: 100px;
     }
+}
+
+.app-footer {
+    margin-bottom: 30px;
+    background-color: #ffffff;
 }
 
 @media (min-width: 992px) {

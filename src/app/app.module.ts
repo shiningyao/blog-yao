@@ -1,10 +1,7 @@
-import { BrowserModule, BrowserTransferStateModule, makeStateKey } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule, Inject, PLATFORM_ID, APP_ID } from '@angular/core';
-// import { ApolloModule, Apollo } from 'apollo-angular';
-// import ApolloClient from 'apollo-client';
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
-// import { HttpLinkModule, HttpLink } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 
@@ -12,36 +9,30 @@ import {
   LayoutComponent,
   TopbarComponent,
   HeaderComponent,
-  CarouselComponent
+  CarouselComponent,
+  FooterComponent
 } from './layouts';
 import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
-import { LogoComponent } from './components/logo/logo.component';
-import { WindowRef } from './shared/tools/window.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from './home';
 import { AboutModule } from './about';
 import { ArticleModule } from './article';
 import { Apollo, ApolloModule } from '@/shared/apollo';
 import { HttpLink, HttpLinkModule } from '@/shared/apollo/link-http';
-
-const STATE_KEY = makeStateKey<any>('apollo.state');
+import { LayoutModule } from '@/layouts/layout.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LayoutComponent,
-    HeaderComponent,
-    TopbarComponent,
-    CarouselComponent,
-    LogoComponent
+    AppComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'blogYao' }),
     TransferHttpCacheModule,
     AppRoutingModule,
     HomeModule,
+    LayoutModule,
     AboutModule,
     ArticleModule,
     SharedModule.forRoot(),
@@ -56,7 +47,7 @@ const STATE_KEY = makeStateKey<any>('apollo.state');
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  readonly API_ROOT = 'http://localhost:3000';
+  readonly API_ROOT = 'http://localhost:4200';
 
   constructor(
     @Inject(PLATFORM_ID) private readonly platformId: Object,

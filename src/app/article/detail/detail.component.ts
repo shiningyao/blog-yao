@@ -1,56 +1,64 @@
-import { Component, OnInit } from '@angular/core';
-import { Apollo, QueryRef } from '@/shared/apollo';
-import { ActivatedRoute } from '@angular/router';
-import gql from 'graphql-tag';
+import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
+import { QueryRef } from '@/shared/apollo';
 
 @Component({
     selector: 'article-detail',
     templateUrl: './detail.component.html',
     styleUrls: ['./detail.scss']
 })
-export class ArticleDetailComponent implements OnInit {
-
+export class ArticleDetailComponent implements OnInit, OnDestroy {
+    
     private postRef: QueryRef<any>;
     article: any;
+    routerEventsSubscription: Subscription;
+    querySubscription: Subscription;
 
     constructor(
         private title: Title,
-        private readonly apollo: Apollo,
-        private readonly route: ActivatedRoute
+        private readonly zone: NgZone,
+        private readonly route: ActivatedRoute,
+        router: Router
     ) {
-        // this.route.params.subscribe(params => {
-        //     const id = params.id;
-        //     this.postRef = apollo.watchQuery({
-        //         query: gql`
-        //             query getArticle($id: String) {
-        //                 article(id: $id) {
-        //                     id,
-        //                     title,
-        //                     content,
-        //                     author {
-        //                         id,
-        //                         login
-        //                     }
-        //                 }
-        //             }
-        //         `,
-        //         variables: {
-        //             id
-        //         }
-        //     });
-
-        //     this.postRef.valueChanges.subscribe(res => {
-        //         this.article = res.data.article;
-        //         this.title.setTitle(this.article.title);
-        //     }, error => {
-
-        //     });
-        // });
+        const {postRef, post} = this.route.snapshot.data['postAndQuery'];
+        this.postRef = postRef;
+        this.article = post;
+        this.routerEventsSubscription = router.events.subscribe((e) => {
+            if(e instanceof NavigationEnd) {
+                this.zone.run(() => {
+                    const {postRef, post} = this.route.snapshot.data['postAndQuery'];
+                    this.postRef = postRef;
+                    if(!post) {
+                        if(this.querySubscription) {
+                            this.querySubscription.unsubscribe();
+                        }
+                        this.querySubscription = this.postRef.valueChanges.subscribe(res => {
+                            this.article = res.data.article;
+                            this.title.setTitle(this.article.title);
+                        });
+                    } else {
+                        this.article = post;
+                    }
+                });
+            }
+        });
     }
 
     ngOnInit(): void {
-        this.article = this.route.snapshot.data['post'];
-        this.title.setTitle(this.article.title);
+        if(!this.article) {
+            this.querySubscription = this.postRef.valueChanges.subscribe(res => {
+                this.article = res.data.article;
+                this.title.setTitle(this.article.title);
+            });
+        }
+    }
+
+    ngOnDestroy(): void {
+        this.routerEventsSubscription.unsubscribe();
+        if(this.querySubscription) {
+            this.querySubscription.unsubscribe();
+        }
     }
 }

@@ -1,15 +1,14 @@
-import { Route } from '@angular/router';
+import { Routes } from '@angular/router';
 import { HeaderComponent } from './header.component';
-// import { HomeComponent } from "../../../home/home.component";
-// import { AboutComponent } from "../../../about/about.component";
+import { CarouselComponent } from '@/layouts/header/carousel/carousel.component';
 
-// export const routes: Routes  = [
-//     { path: '', component: HomeComponent },
-//     { path: 'about', component: AboutComponent, pathMatch: 'full' }
-// ];
-
-export const headerRoutes: Route  = {
+export const headerRoutes: Routes  = [{
     path: '',
     component: HeaderComponent,
     outlet: 'header'
-};
+}, {
+    path: '',
+    component: CarouselComponent,
+    outlet: 'carousel',
+    pathMatch: 'full'
+}];

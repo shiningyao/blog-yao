@@ -1,0 +1,139 @@
+.container {
+    padding: 2em 100px 0;
+}
+
+.footer-widget {
+    .widget-title {
+        font-weight: 400;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 20px;
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 30px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            height: 4px;
+            width: 15%;
+            border-top: 1px solid #f2f2f2;
+            border-bottom: 1px solid #f2f2f2;
+            left: 10px;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            height: 4px;
+            width: 15%;
+            border-top: 1px solid #f2f2f2;
+            border-bottom: 1px solid #f2f2f2;
+            right: 10px;
+        }
+
+    }
+}
+
+.themewing-latest-post {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: block;
+
+    .latest-post-items {
+        overflow: hidden;
+    }
+
+    .latest-post-image {
+        margin-right: 15px;
+        margin-bottom: 25px;
+        img {
+            border-radius: 4px;
+        }
+    }
+
+    .latest-post-content {
+        
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        h4 {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 500;
+        }
+
+        .side-meta {
+            margin: 0;
+            line-height: 18px;
+            a {
+                color: #ccc;
+                font-size: 12px;
+                line-height: 16px;
+                font-style: italic;
+            }
+        }
+    }
+}
+
+.footer-area {
+    background: #100C0C;
+    margin: 0 -100px;
+    padding: 30px 100px;
+    position: relative;
+    color: rgba(180, 180, 180, 0.6);
+    font-size: 14px;
+    .site-info {
+        a {
+            color: #fff;
+            font-weight: 700;
+        }
+    }
+
+    .footer-sharebtn {
+        text-align: right;
+    }
+
+    .social-buttons {
+        ul {
+            display: block;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            & > li {
+                display: inline-block;
+                a {
+                    width: 30px;
+                    height: 30px;
+                    text-align: center;
+                    line-height: 30px;
+                    margin-right: 8px;
+                    display: block;
+                    font-size: 18px;
+                    color: rgba(255, 255, 255, 0.4);
+                }
+            }
+        }
+    }
+
+    span.to-top a {
+        position: absolute;
+        right: 20px;
+        top: 25px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        background: #fff;
+        color: #000;
+        text-align: center;
+        border-radius: 2px;
+        transition: 300ms;
+    }
+}

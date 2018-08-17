@@ -5,10 +5,7 @@ import { DetailResolver } from '@/article/detail/detail.resolver';
 export const ARTICLE_ROUTES: Routes = [{
     path: 'article/:id',
     component: ArticleDetailComponent,
-    data: {
-        showCarousel: false
-    },
     resolve: {
-        post: DetailResolver
+        postAndQuery: DetailResolver
     }
 }];

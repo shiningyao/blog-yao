@@ -1,5 +1,5 @@
 import { Component, OnInit, ElementRef, AfterViewInit, Input, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
-import { WindowRef } from '../../shared/tools/window.service';
+import { WindowRef } from '@/shared/tools/window.service';
 import { isPlatformBrowser } from '@angular/common';
 
 let start = null;
