@@ -5,6 +5,7 @@ import { QueryRef } from '@/shared/apollo';
 import { ViewportScroller, isPlatformBrowser } from '@angular/common';
 import { Subscription, fromEvent } from 'rxjs';
 import { Pageable } from '@/shared/interfaces/page';
+import { ApolloQueryResult } from 'apollo-client';
 
 @Component({
     selector: 'app-home',
@@ -21,7 +22,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     postsRef: QueryRef<any>;
     posts = {
-        content: []
+        content: [],
+        last: false,
+        first: false
     };
     pager: Pageable = HomeComponent.pager;
     routerEventsSubscription: Subscription;
@@ -73,8 +76,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        this.routerEventsSubscription.unsubscribe();
-        this.scrollEventSubscription.unsubscribe();
+        if ( this.routerEventsSubscription) {
+            this.routerEventsSubscription.unsubscribe();
+        }
+        if (this.scrollEventSubscription) {
+            this.scrollEventSubscription.unsubscribe();
+        }
         if (this.queryEventSubscription) {
             this.queryEventSubscription.unsubscribe();
         }
@@ -97,17 +104,30 @@ export class HomeComponent implements OnInit, OnDestroy {
         });
     }
 
-    fetchMore() {
-        return this.postsRef.fetchMore({
-            variables: {
-                pageable: this.pager
-            },
-            updateQuery: (prev, {fetchMoreResult}) => {
-                if (!fetchMoreResult) {
-                    return prev;
+    fetchMore(): Promise<ApolloQueryResult<any>> {
+        const variables = {
+            pageable: this.pager
+        };
+        console.log(this.postsRef);
+        if (!this.postsRef.getLastResult()) {
+            this.postsRef.setVariables(variables);
+            return new Promise<ApolloQueryResult<any>>((resolve, reject) => {
+                this.queryEventSubscription = this.postsRef.valueChanges.subscribe((res) => {
+                    resolve(res);
+                }, (error) => {
+                    reject(error);
+                });
+            });
+        } else {
+            return this.postsRef.fetchMore({
+                variables,
+                updateQuery: (prev, {fetchMoreResult}) => {
+                    if (!fetchMoreResult) {
+                        return prev;
+                    }
+                    return fetchMoreResult;
                 }
-                return fetchMoreResult;
-            }
-        });
+            });
+        }
     }
 }

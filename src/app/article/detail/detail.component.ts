@@ -10,7 +10,7 @@ import { QueryRef } from '@/shared/apollo';
     styleUrls: ['./detail.scss']
 })
 export class ArticleDetailComponent implements OnInit, OnDestroy {
-    
+
     private postRef: QueryRef<any>;
     article: any;
     routerEventsSubscription: Subscription;
@@ -26,12 +26,12 @@ export class ArticleDetailComponent implements OnInit, OnDestroy {
         this.postRef = postRef;
         this.article = post;
         this.routerEventsSubscription = router.events.subscribe((e) => {
-            if(e instanceof NavigationEnd) {
+            if (e instanceof NavigationEnd) {
                 this.zone.run(() => {
                     const {postRef, post} = this.route.snapshot.data['postAndQuery'];
                     this.postRef = postRef;
-                    if(!post) {
-                        if(this.querySubscription) {
+                    if (!post) {
+                        if (this.querySubscription) {
                             this.querySubscription.unsubscribe();
                         }
                         this.querySubscription = this.postRef.valueChanges.subscribe(res => {
@@ -40,6 +40,7 @@ export class ArticleDetailComponent implements OnInit, OnDestroy {
                         });
                     } else {
                         this.article = post;
+                        this.title.setTitle(this.article.title);
                     }
                 });
             }
@@ -47,7 +48,7 @@ export class ArticleDetailComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        if(!this.article) {
+        if (!this.article) {
             this.querySubscription = this.postRef.valueChanges.subscribe(res => {
                 this.article = res.data.article;
                 this.title.setTitle(this.article.title);
@@ -57,7 +58,7 @@ export class ArticleDetailComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.routerEventsSubscription.unsubscribe();
-        if(this.querySubscription) {
+        if (this.querySubscription) {
             this.querySubscription.unsubscribe();
         }
     }

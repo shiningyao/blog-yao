@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prerender": "ts-node prerender.ts"
+    "prerender": "ts-node prerender.ts",
+    "blog-yao:build": "ng run blog-yao:build --target=production --configuration=production --aot",
+    "server": "npm run blog-yao:build && ng run blog-yao:server && nodemon server.ts"
   },
   "private": true,
   "dependencies": {
