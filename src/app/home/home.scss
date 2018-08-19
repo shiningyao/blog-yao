@@ -8,14 +8,16 @@
 
 // main content
 .main-content-inner {
-    float: left;
-    width: 66.66666667%;
     padding: 2em 35px 2em 15px;
     box-sizing: border-box;
     article {
         position: relative;
         padding-bottom: 70px;
         padding-top: 60px;
+        hyphens: auto;
+        word-break: break-all;
+        word-break: break-word;
+
         &:first-child {
             padding-top: 0;
         }
@@ -49,8 +51,6 @@
 
 .sidebar {
     display: block;
-    float: right;
-    width: 33.33333333%;
     padding: 40px 35px 32px;
     box-sizing: border-box;
 }
@@ -128,6 +128,11 @@ ul.entry-meta {
 
 .entry-content {
     margin-bottom: 40px;
+    overflow: hidden;
+
+    ::ng-deep img {
+        max-width: 100%;
+    }
 }
 
 .page-title {
@@ -393,5 +398,15 @@ ul.latest-post-list {
                 }
             }
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px 30px 0;
+    }
+
+    .main-content-inner {
+        padding-right: 15px;
     }
 }

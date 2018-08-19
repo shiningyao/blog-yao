@@ -1,3 +1,8 @@
+.app-layout {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .main-content {
     position: relative;
     background-color: #ffffff;
@@ -46,6 +51,10 @@
                 width: 100%;
             }
         }
+    }
+
+    .app-footer {
+        margin-bottom: 0;
     }
 }
 

@@ -12,17 +12,21 @@ import { Pageable } from '@/shared/interfaces/page';
     styleUrls: ['./home.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-    
-    postsRef: QueryRef<any>;
-    posts = [];
-    routerEventsSubscription: Subscription;
-    scrollEventSubscription: Subscription;
-    queryEventSubscription: Subscription;
-    pager: Pageable = {
+
+    static scrollPosition: [number, number] = [0, 0];
+    static pager: Pageable = {
         page: 0,
         size: 4
     };
-    static scrollPosition: [number, number] = [0, 0];
+
+    postsRef: QueryRef<any>;
+    posts = {
+        content: []
+    };
+    pager: Pageable = HomeComponent.pager;
+    routerEventsSubscription: Subscription;
+    scrollEventSubscription: Subscription;
+    queryEventSubscription: Subscription;
 
     constructor(
         private readonly title: Title,
@@ -35,11 +39,11 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.postsRef = postsRef;
         this.posts = posts;
         this.routerEventsSubscription = router.events.subscribe((e) => {
-            if(e instanceof Scroll) {
+            if (e instanceof Scroll) {
                 viewportScroller.scrollToPosition(HomeComponent.scrollPosition);
             }
         });
-        if(isPlatformBrowser(platformId)) {
+        if (isPlatformBrowser(platformId)) {
             this.scrollEventSubscription = fromEvent(document, 'scroll').subscribe(() => {
                 HomeComponent.scrollPosition = viewportScroller.getScrollPosition();
             });
@@ -61,7 +65,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.title.setTitle('BlogYao');
-        if(!this.posts) {
+        if (!this.posts) {
             this.queryEventSubscription = this.postsRef.valueChanges.subscribe((res) => {
                 this.posts = res.data.articles;
             });
@@ -71,15 +75,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         this.routerEventsSubscription.unsubscribe();
         this.scrollEventSubscription.unsubscribe();
-        if(this.queryEventSubscription) {
+        if (this.queryEventSubscription) {
             this.queryEventSubscription.unsubscribe();
         }
+        HomeComponent.pager = this.pager;
     }
 
     newerPosts() {
-        if(this.pager.page > 0) {
-            alert('prev page is ' + --this.pager.page);
-        }
+        this.pager.page--;
+        this.fetchMore().then(res => {
+            this.posts = res.data.articles;
+            this.viewportScroller.scrollToPosition([0, 0]);
+        });
     }
 
     olderPosts() {
@@ -96,7 +103,7 @@ export class HomeComponent implements OnInit, OnDestroy {
                 pageable: this.pager
             },
             updateQuery: (prev, {fetchMoreResult}) => {
-                if(!fetchMoreResult) {
+                if (!fetchMoreResult) {
                     return prev;
                 }
                 return fetchMoreResult;

@@ -5,6 +5,8 @@
         padding-bottom: 70px;
         padding-top: 60px;
         margin-bottom: 70px;
+        hyphens: auto;
+        word-break: break-all;
         &:first-child {
             padding-top: 0;
         }
@@ -109,6 +111,9 @@ ul.entry-meta {
 
 .entry-content {
     margin-bottom: 40px;
+    ::ng-deep img {
+        max-width: 100%;
+    }
 }
 
 .page-title {
@@ -257,8 +262,6 @@ a.more-link {
     }
 
     .item-related {
-        float: left;
-        width: (100% / 4);
         padding: 0 15px;
         box-sizing: border-box;
         img {
@@ -391,4 +394,25 @@ ol.media-list {
     .must-log-in {
         margin: 0 0 1.2em;
     }
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        padding: 2em 30px;
+    }
+
+    .page-header {
+        padding: 0;
+    }
+
+    .comment {
+        .children {
+            margin-left: 0;
+        }
+    }
+     .item-related {
+         text-align: center;
+         margin-bottom: 2em;
+     }
 }

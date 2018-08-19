@@ -2,7 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { RouterModule } from '@angular/router';
-import { HOME_ROUTE } from './home.route';
+import { HOME_ROUTES } from './home.route';
 import { SharedModule } from '../shared/shared.module';
 import { HomeResolver } from '@/home/home.resolver';
 
@@ -11,7 +11,7 @@ import { HomeResolver } from '@/home/home.resolver';
         HomeComponent
     ],
     imports: [
-        RouterModule.forChild([HOME_ROUTE]),
+        RouterModule.forChild(HOME_ROUTES),
         CommonModule,
         SharedModule
     ],

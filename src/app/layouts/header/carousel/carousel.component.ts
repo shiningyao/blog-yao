@@ -11,8 +11,8 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     @ViewChild('carouselContainer', {
         read: ElementRef
     }) carouselContainer: ElementRef;
-    isTransition: boolean = false;
-    private isBrowser: boolean = false;
+    isTransition = false;
+    private isBrowser = false;
 
     constructor(@Inject(PLATFORM_ID) private platformId) {
         this.isBrowser = isPlatformBrowser(platformId);
@@ -21,16 +21,21 @@ export class CarouselComponent implements OnInit, AfterViewInit {
     ngOnInit(): void { }
 
     ngAfterViewInit() {
-        if(this.isBrowser) {
+        if (this.isBrowser) {
             import('tiny-slider-yao').then((lib) => {
                 const slider = lib.tns({
                     container: this.carouselContainer.nativeElement,
-                    items: 3,
+                    items: 2,
                     speed: 1000,
                     slideBy: 'page',
                     autoplay: true,
                     autoplayButtonOutput: false,
-                    controls: false
+                    controls: false,
+                    responsive: {
+                        768: {
+                            items: 3
+                        }
+                    }
                 });
                 slider.events.on('transitionStart', () => {
                     this.isTransition = true;

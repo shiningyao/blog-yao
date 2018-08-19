@@ -22,6 +22,7 @@ import { ArticleModule } from './article';
 import { Apollo, ApolloModule } from '@/shared/apollo';
 import { HttpLink, HttpLinkModule } from '@/shared/apollo/link-http';
 import { LayoutModule } from '@/layouts/layout.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LayoutModule } from '@/layouts/layout.module';
     ApolloModule,
     HttpLinkModule,
     BrowserTransferStateModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     HttpClientXsrfModule
   ],
@@ -47,7 +49,7 @@ import { LayoutModule } from '@/layouts/layout.module';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  readonly API_ROOT = 'http://localhost:4200';
+  readonly API_ROOT = 'http://www.yaoshen.tech:3000';
 
   constructor(
     @Inject(PLATFORM_ID) private readonly platformId: Object,

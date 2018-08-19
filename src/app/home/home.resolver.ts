@@ -30,17 +30,23 @@ export class HomeResolver implements Resolve<any> {
                 query fetchArticles($status: ArticleStatus, $pageable: Pageable) {
                     articles(status: $status, pageable: $pageable) {
                         content {
-                            id,
-                            title
-                        }
-                        # id
-                        # title,
-                        # content,
-                        # publishDate,
-                        # author {
-                        #     id,
-                        #     login
-                        # }
+                            ... on Article {
+                                id
+                                title,
+                                content,
+                                publishDate,
+                                author {
+                                    id,
+                                    login
+                                }
+                            }
+                        },
+                        totalPages,
+                        totalElements,
+                        size,
+                        numberOfElements,
+                        first,
+                        last
                     }
                 }
             `,

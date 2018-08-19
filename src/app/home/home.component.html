@@ -1,7 +1,6 @@
-<app-carousel></app-carousel>
 <div class="container">
-    <div class="main-content-inner">
-        <article *ngFor="let post of posts">
+    <div class="main-content-inner col-sm-8">
+        <article *ngFor="let post of posts.content">
             <header class="page-header">
                 <span class="meta-category">
                     <a href>Blog</a>
@@ -89,13 +88,13 @@
         <nav role="navigation" class="post-navigation">
             <ul class="pager post-nav">
                 <li class="nav-previous previous" rel="prev">
-                    <a href="javascript:void(0)" title="OLDER POSTS" (click)="olderPosts()">
+                    <a href="javascript:void(0)" title="OLDER POSTS" (click)="olderPosts()" *ngIf="!posts.last">
                         <span class="meta-nav">←</span>
                         <div class="meta-title">OLDER POSTS</div>
                     </a> 
                 </li>
                 <li class="nav-next next" rel="next" *ngIf="pager.page > 0">
-                    <a href="javascript:void(0)" title="NEWER POSTS" (click)="newerPosts()">
+                    <a href="javascript:void(0)" title="NEWER POSTS" (click)="newerPosts()" *ngIf="!posts.first">
                         <div class="meta-title">
                             NEWER POSTS
                         </div>
@@ -105,7 +104,7 @@
             </ul>
         </nav>
     </div>
-    <div class="sidebar">
+    <div class="sidebar col-sm-4">
         <div class="sidebar-padder">
             <div class="widget">
                 <div class="widget-title">
