@@ -76,7 +76,7 @@ app.engine('html', ngExpressEngine({
     providers: [
         provideModuleMap(LAZY_MODULE_MAP),
         {provide: TRANSLATIONS, useValue: localeFile},
-        {provide: TRANSLATIONS_FORMAT, useValue: "xlf"},
+        {provide: TRANSLATIONS_FORMAT, useValue: 'xlf'},
         {provide: LOCALE_ID, useValue: locale}
     ]
 }));
@@ -86,7 +86,7 @@ app.set('views', distFolder);
 
 app.get('*.*', (req, res, next) => {
     const locale = getLocaleLanguage(req);
-    const root = distFolder + '/' + locale
+    const root = distFolder + '/' + locale;
     const staticMiddleware = express.static(root, {
         maxAge: '1y'
     });
