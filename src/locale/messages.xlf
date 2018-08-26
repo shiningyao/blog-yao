@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="postedOn" datatype="html">
+        <source>POSTED ON</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="authorBy" datatype="html">
+        <source>By</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <note priority="1" from="description">author by</note>
+      </trans-unit>
+      <trans-unit id="olderPosts" datatype="html">
+        <source>OLDER POSTS</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.html</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="newerPosts" datatype="html">
+        <source>
+                            NEWER POSTS
+                        </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.html</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="aboutMe" datatype="html">
+        <source>
+                    About
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.html</context>
+          <context context-type="linenumber">110</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/layouts/footer/footer.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="422a07b0b339cad7b7362df56e19909ffd1f28a4" datatype="html">
+        <source>
+                        Bacon ipsum dolor amet leberkas ham hock cupim alcatra
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.html</context>
+          <context context-type="linenumber">115</context>
+        </context-group>
+        <note priority="1" from="description">About me description.</note>
+        <note priority="1" from="meaning">sidebar widget</note>
+      </trans-unit>
+      <trans-unit id="search" datatype="html">
+        <source>Search...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.html</context>
+          <context context-type="linenumber">155</context>
+        </context-group>
+        <note priority="1" from="description">Seachbox placeholder</note>
+      </trans-unit>
+      <trans-unit id="latestPosts" datatype="html">
+        <source>
+                    LATEST POSTS
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.html</context>
+          <context context-type="linenumber">163</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/layouts/footer/footer.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="tagCloud" datatype="html">
+        <source>
+                    TAG CLOUD
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/home/home.component.html</context>
+          <context context-type="linenumber">257</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/layouts/footer/footer.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8ef87ebafc37b4b202294dd1f5c463eec208a570" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">A link to home page.</note>
+        <note priority="1" from="meaning">site navigation</note>
+      </trans-unit>
+      <trans-unit id="96f6789acc533fe991a92345676c37c48841b22a" datatype="html">
+        <source>Post Formats</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <note priority="1" from="description">All post formats.</note>
+        <note priority="1" from="meaning">site navigation</note>
+      </trans-unit>
+      <trans-unit id="bcc179a7ef1bb4ae82fe5758424cbac7e27ff8a6" datatype="html">
+        <source>Lifestyle</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+        <note priority="1" from="description">Lifestyle post type.</note>
+        <note priority="1" from="meaning">site navigation</note>
+      </trans-unit>
+      <trans-unit id="ac8a6b78845f37fce0d6819538f919c298f740b9" datatype="html">
+        <source>Fasion</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Fasion post type.</note>
+        <note priority="1" from="meaning">site navigation</note>
+      </trans-unit>
+      <trans-unit id="3e8932bc12209cd663fd4ea1645143237838a176" datatype="html">
+        <source>Contact</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+        <note priority="1" from="description">A link to contect page.</note>
+        <note priority="1" from="meaning">site navigation</note>
+      </trans-unit>
+      <trans-unit id="f5817be74bdd1b2feb26e4d9b46cec27c4e345c8" datatype="html">
+        <source>
+                        <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Bacon ipsum dolor amet strip drumk shankle frankfur salami bham hock   Cow hamburger shoulder brisk
+                            dolor amet strip steak drumstick shankle frankfur  filet bacon ipsum<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/layouts/footer/footer.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">About me description</note>
+        <note priority="1" from="meaning">footer widget</note>
+      </trans-unit>
+      <trans-unit id="relatedPosts" datatype="html">
+        <source>Related Posts</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="says" datatype="html">
+        <source>says</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">158</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">188</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">218</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">252</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">282</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">312</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginToReply" datatype="html">
+        <source>
+                                        Log in to Reply
+                                    </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">170</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">200</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">230</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">264</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">294</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">324</context>
+        </context-group>
+        <note priority="1" from="description">Prompt user log in to reply</note>
+        <note priority="1" from="meaning">post comments</note>
+      </trans-unit>
+      <trans-unit id="leaveAReply" datatype="html">
+        <source>
+                    Leave a Reply
+                </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">336</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2c3572d142f5ba1e0274f6d1990053ad810217c4" datatype="html">
+        <source>You must be </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">340</context>
+        </context-group>
+        <note priority="1" from="description">comment reply prompt message</note>
+      </trans-unit>
+      <trans-unit id="2f77a7708cc99f8e257802a8e33b249895d25c84" datatype="html">
+        <source>logged in</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">340</context>
+        </context-group>
+        <note priority="1" from="description">comment reply prompt message</note>
+      </trans-unit>
+      <trans-unit id="d6ca1927ee96914dd9aa4d8327d50ebc3e8f28b6" datatype="html">
+        <source> to post a comment.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+          <context context-type="linenumber">340</context>
+        </context-group>
+        <note priority="1" from="description">comment reply prompt message</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -9,13 +9,13 @@
             </h2>
             <ul class="entry-meta">
                 <li class="publish-date">
-                    POSTED ON
+                    <ng-container i18n="@@postedOn">POSTED ON</ng-container>
                     <time class="entry-date">
                         {{article.publishDate | timezoneDate:'ll'}}
                     </time>
                 </li>
                 <li class="author">
-                    By
+                    <ng-container i18n="author by@@authorBy">By</ng-container>
                     <a href="javascript:void(0)">
                         {{article.author.login}}
                     </a>
@@ -104,7 +104,7 @@
     </nav>
     <div class="post-related">
         <div class="related-title">
-            <h3>Related Post</h3>
+            <h3 i18n="@@relatedPosts">Related Posts</h3>
         </div>
         <div>
             <div class="item-related col-sm-3">
@@ -155,7 +155,7 @@
                                 <div class="comment-area">
                                     <h5 class="media-heading">
                                         <span class="fn">admin</span>
-                                        <span class="says">says:</span>
+                                        <span class="says" i18n="@@says">says</span>:
                                     </h5>
                                     <div class="comment-meta">
                                         <a href="javascript:void(0)">
@@ -167,7 +167,7 @@
                                     <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
                                 </div>
                                 <footer class="reply comment-reply">
-                                    <a href="javascript:void(0)" class="comment-reply-login">
+                                    <a href="javascript:void(0)" class="comment-reply-login" i18n="post comments|Prompt user log in to reply@@loginToReply">
                                         Log in to Reply
                                     </a>
                                 </footer>
@@ -185,7 +185,7 @@
                                         <div class="comment-area">
                                             <h5 class="media-heading">
                                                 <span class="fn">admin</span>
-                                                <span class="says">says:</span>
+                                                <span class="says" i18n="@@says">says</span>:
                                             </h5>
                                             <div class="comment-meta">
                                                 <a href="javascript:void(0)">
@@ -197,7 +197,7 @@
                                             <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
                                         </div>
                                         <footer class="reply comment-reply">
-                                            <a href="javascript:void(0)" class="comment-reply-login">
+                                            <a href="javascript:void(0)" class="comment-reply-login" i18n="post comments|Prompt user log in to reply@@loginToReply">
                                                 Log in to Reply
                                             </a>
                                         </footer>
@@ -215,7 +215,7 @@
                                                 <div class="comment-area">
                                                     <h5 class="media-heading">
                                                         <span class="fn">admin</span>
-                                                        <span class="says">says:</span>
+                                                        <span class="says" i18n="@@says">says</span>:
                                                     </h5>
                                                     <div class="comment-meta">
                                                         <a href="javascript:void(0)">
@@ -227,7 +227,7 @@
                                                     <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
                                                 </div>
                                                 <footer class="reply comment-reply">
-                                                    <a href="javascript:void(0)" class="comment-reply-login">
+                                                    <a href="javascript:void(0)" class="comment-reply-login" i18n="post comments|Prompt user log in to reply@@loginToReply">
                                                         Log in to Reply
                                                     </a>
                                                 </footer>
@@ -249,7 +249,7 @@
                                 <div class="comment-area">
                                     <h5 class="media-heading">
                                         <span class="fn">admin</span>
-                                        <span class="says">says:</span>
+                                        <span class="says" i18n="@@says">says</span>:
                                     </h5>
                                     <div class="comment-meta">
                                         <a href="javascript:void(0)">
@@ -261,7 +261,7 @@
                                     <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
                                 </div>
                                 <footer class="reply comment-reply">
-                                    <a href="javascript:void(0)" class="comment-reply-login">
+                                    <a href="javascript:void(0)" class="comment-reply-login" i18n="post comments|Prompt user log in to reply@@loginToReply">
                                         Log in to Reply
                                     </a>
                                 </footer>
@@ -279,7 +279,7 @@
                                         <div class="comment-area">
                                             <h5 class="media-heading">
                                                 <span class="fn">admin</span>
-                                                <span class="says">says:</span>
+                                                <span class="says" i18n="@@says">says</span>:
                                             </h5>
                                             <div class="comment-meta">
                                                 <a href="javascript:void(0)">
@@ -291,7 +291,7 @@
                                             <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
                                         </div>
                                         <footer class="reply comment-reply">
-                                            <a href="javascript:void(0)" class="comment-reply-login">
+                                            <a href="javascript:void(0)" class="comment-reply-login" i18n="post comments|Prompt user log in to reply@@loginToReply">
                                                 Log in to Reply
                                             </a>
                                         </footer>
@@ -309,7 +309,7 @@
                                         <div class="comment-area">
                                             <h5 class="media-heading">
                                                 <span class="fn">admin</span>
-                                                <span class="says">says:</span>
+                                                <span class="says" i18n="@@says">says</span>:
                                             </h5>
                                             <div class="comment-meta">
                                                 <a href="javascript:void(0)">
@@ -321,7 +321,7 @@
                                             <p>Ribeye porchetta bacon bresaola picanha pastrami flank. Porchetta brisket jerky, picanha tri-tip kevin biltong leberkas spare ribs bresaola prosciutto.</p>
                                         </div>
                                         <footer class="reply comment-reply">
-                                            <a href="javascript:void(0)" class="comment-reply-login">
+                                            <a href="javascript:void(0)" class="comment-reply-login" i18n="post comments|Prompt user log in to reply@@loginToReply">
                                                 Log in to Reply
                                             </a>
                                         </footer>
@@ -333,11 +333,11 @@
                 </li>
             </ol>
             <div class="comment-respond">
-                <h3 class="comment-reply-title">
+                <h3 class="comment-reply-title" i18n="@@leaveAReply">
                     Leave a Reply
                 </h3>
                 <p class="must-log-in">
-                    You must be <a href="javascript:void(0)">logged in</a> to post a comment.
+                    <ng-container i18n="comment reply prompt message">You must be </ng-container><a href="javascript:void(0)" i18n="comment reply prompt message">logged in</a><ng-container i18n="comment reply prompt message"> to post a comment.</ng-container>
                 </p>
             </div>
         </header>

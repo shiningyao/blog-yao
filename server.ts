@@ -18,12 +18,18 @@ import * as morgan from 'morgan';
 import logger from './config/logging';
 
 // angular & angular universal
-import { enableProdMode } from '@angular/core';
+import { enableProdMode, TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID } from '@angular/core';
 import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
+// i18n code & files & xlf text content
+const distFolder = __dirname + '/dist';
+const localeFolder = __dirname + '/src/locale';
+const locale = process.env.locale || 'en';
+const localeFile = readFileSync(`${localeFolder}/messages.${locale}.xlf`, 'UTF-8');
+
 // universal app entry point & routes
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist-server/main');
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(`./dist-server/${locale}/main`);
 const apiRoutes = require('./routes/article.js');
 
 enableProdMode();
@@ -56,27 +62,41 @@ app.use(session({
     saveUninitialized: true
 }));
 
-const indexHtml = readFileSync(__dirname + '/dist/index.html', 'UTF-8');
-const distFolder = __dirname + '/dist';
+function getLocaleLanguage(req) {
+    const languages = req.headers['accept-language'];
+    const locale = languages.split(';')[0].split(',')[1];
+    return locale;
+}
 
 app.engine('html', ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,
-    providers: [provideModuleMap(LAZY_MODULE_MAP)]
+    providers: [
+        provideModuleMap(LAZY_MODULE_MAP),
+        {provide: TRANSLATIONS, useValue: localeFile},
+        {provide: TRANSLATIONS_FORMAT, useValue: "xlf"},
+        {provide: LOCALE_ID, useValue: locale}
+    ]
 }));
 
 app.set('view engine', 'html');
 app.set('views', distFolder);
 
-app.get('*.*', express.static(distFolder, {
-    maxAge: '1y'
-}));
+app.get('*.*', (req, res, next) => {
+    const locale = getLocaleLanguage(req);
+    const root = distFolder + '/' + locale
+    const staticMiddleware = express.static(root, {
+        maxAge: '1y'
+    });
+    staticMiddleware(req, res, next);
+});
 
 app.use('/api', apiProxy);
 app.use('/api', apiRoutes);
 
 app.get('*', (req, res) => {
+    const locale = getLocaleLanguage(req);
     res.cookie('XSRF-TOKEN', xsrfToken);
-    res.render('index', {req});
+    res.render(`${locale}/index`, {req});
 });
 
 app.listen(port, () => {

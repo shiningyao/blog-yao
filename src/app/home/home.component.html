@@ -10,13 +10,13 @@
                 </h2>
                 <ul class="entry-meta">
                     <li class="publish-date">
-                        POSTED ON
+                        <ng-container i18n="@@postedOn">POSTED ON</ng-container>
                         <time class="entry-date">
                             {{post.publishDate | timezoneDate:'ll'}}
                         </time>
                     </li>
                     <li class="author">
-                        By
+                        <ng-container i18n="author by@@authorBy">By</ng-container>
                         <a href="">
                             {{post.author.login}}
                         </a>
@@ -90,12 +90,12 @@
                 <li class="nav-previous previous" rel="prev">
                     <a href="javascript:void(0)" title="OLDER POSTS" (click)="olderPosts()" *ngIf="!posts.last">
                         <span class="meta-nav">←</span>
-                        <div class="meta-title">OLDER POSTS</div>
+                        <div class="meta-title" i18n="@@olderPosts">OLDER POSTS</div>
                     </a> 
                 </li>
                 <li class="nav-next next" rel="next" *ngIf="pager.page > 0">
                     <a href="javascript:void(0)" title="NEWER POSTS" (click)="newerPosts()" *ngIf="!posts.first">
-                        <div class="meta-title">
+                        <div class="meta-title" i18n="@@newerPosts">
                             NEWER POSTS
                         </div>
                         <span class="meta-nav">→</span>
@@ -107,12 +107,12 @@
     <div class="sidebar col-sm-4">
         <div class="sidebar-padder">
             <div class="widget">
-                <div class="widget-title">
+                <div class="widget-title" i18n="@@aboutMe">
                     About
                 </div>
                 <div class="widget-body aboutme-widget">
                     <img src="http://themewing.com/wordpress/easyblog/wp-content/uploads/2015/01/about.jpg" alt="">
-                    <p>
+                    <p i18n="sidebar widget|About me description.">
                         Bacon ipsum dolor amet leberkas ham hock cupim alcatra
                     </p>
                 </div>
@@ -152,7 +152,7 @@
                 </ul>
             </div>
             <form class="searchbox">
-                <input class="searchbox" type="text" placeholder="Search..." />
+                <input class="searchbox" type="text" i18n-placeholder="Seachbox placeholder@@search" placeholder="Search..." />
             </form>
             <div class="ads-banner-widget">
                 <a href="">
@@ -160,7 +160,7 @@
                 </a>
             </div>
             <div class="widget">
-                <div class="widget-title">
+                <div class="widget-title" i18n="@@latestPosts">
                     LATEST POSTS
                 </div>
                 <div class="widget-body">
@@ -254,7 +254,7 @@
                 </div>
             </div>
             <div class="widget">
-                <div class="widget-title">
+                <div class="widget-title" i18n="@@tagCloud">
                     TAG CLOUD
                 </div>
                 <div class="widget-body">

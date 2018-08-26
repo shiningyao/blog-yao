@@ -1,5 +1,5 @@
 import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
-import { NgModule, Inject, PLATFORM_ID, APP_ID } from '@angular/core';
+import { NgModule, Inject, PLATFORM_ID, APP_ID, LOCALE_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -45,6 +45,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientXsrfModule
   ],
   providers: [
+    { provide: LOCALE_ID, useValue: 'zh' }
   ],
   bootstrap: [AppComponent]
 })
@@ -52,8 +53,8 @@ export class AppModule {
   readonly API_ROOT = 'http://localhost:3000';
 
   constructor(
-    @Inject(PLATFORM_ID) private readonly platformId: Object,
-    @Inject(APP_ID) private readonly appId: string,
+    @Inject(PLATFORM_ID) readonly platformId: Object,
+    @Inject(APP_ID) readonly appId: string,
     apollo: Apollo,
     httpLink: HttpLink
   ) {

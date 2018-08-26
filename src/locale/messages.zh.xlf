@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file datatype="plaintext" target-language="zh" original="ng2.template" source-language="en">
+        <body>
+            <trans-unit id="postedOn" datatype="html">
+                <source>POSTED ON</source>
+                <target>发布于</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/home/home.component.html</context>
+                    <context context-type="linenumber">13</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">12</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="authorBy">
+                <source>By</source>
+                <target>作者</target>
+                <note priority="1" from="description">author by</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/home/home.component.html</context>
+                    <context context-type="linenumber">19</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">18</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="olderPosts" datatype="html">
+                <source>OLDER POSTS</source>
+                <target>以前的文章</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/home/home.component.html</context>
+                    <context context-type="linenumber">93</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="newerPosts" datatype="html">
+                <source>NEWER POSTS</source>
+                <target>更新的文章</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/home/home.component.html</context>
+                    <context context-type="linenumber">98</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="aboutMe" datatype="html">
+                <source>About</source>
+                <target>关于</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/home/home.component.html</context>
+                    <context context-type="linenumber">110</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+                    <context context-type="linenumber">26</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/layouts/footer/footer.component.html</context>
+                    <context context-type="linenumber">6</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="422a07b0b339cad7b7362df56e19909ffd1f28a4">
+                <source>Bacon ipsum dolor amet leberkas ham hock cupim alcatra</source>
+                <target>Bacon ipsum dolor amet leberkas ham hock cupim alcatra</target>
+                <note priority="1" from="description">About me description.</note>
+                <note priority="1" from="meaning">sidebar widget</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/home/home.component.html</context>
+                    <context context-type="linenumber">115</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="search">
+                <source>Search...</source>
+                <target>查找...</target>
+                <note priority="1" from="description">Seachbox placeholder</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/home/home.component.html</context>
+                    <context context-type="linenumber">155</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="latestPosts" datatype="html">
+                <source>LATEST POSTS</source>
+                <target>最新的文章</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/home/home.component.html</context>
+                    <context context-type="linenumber">163</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/layouts/footer/footer.component.html</context>
+                    <context context-type="linenumber">25</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="tagCloud" datatype="html">
+                <source>TAG CLOUD</source>
+                <target>标签云</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/home/home.component.html</context>
+                    <context context-type="linenumber">257</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/layouts/footer/footer.component.html</context>
+                    <context context-type="linenumber">17</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="8ef87ebafc37b4b202294dd1f5c463eec208a570">
+                <source>Home</source>
+                <target>首页</target>
+                <note priority="1" from="description">A link to home page.</note>
+                <note priority="1" from="meaning">site navigation</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+                    <context context-type="linenumber">14</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="96f6789acc533fe991a92345676c37c48841b22a">
+                <source>Post Formats</source>
+                <target>文章格式</target>
+                <note priority="1" from="description">All post formats.</note>
+                <note priority="1" from="meaning">site navigation</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+                    <context context-type="linenumber">17</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="bcc179a7ef1bb4ae82fe5758424cbac7e27ff8a6">
+                <source>Lifestyle</source>
+                <target>生活</target>
+                <note priority="1" from="description">Lifestyle post type.</note>
+                <note priority="1" from="meaning">site navigation</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+                    <context context-type="linenumber">20</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="ac8a6b78845f37fce0d6819538f919c298f740b9">
+                <source>Fasion</source>
+                <target>时尚</target>
+                <note priority="1" from="description">Fasion post type.</note>
+                <note priority="1" from="meaning">site navigation</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+                    <context context-type="linenumber">23</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="3e8932bc12209cd663fd4ea1645143237838a176">
+                <source>Contact</source>
+                <target>联系我们</target>
+                <note priority="1" from="description">A link to contect page.</note>
+                <note priority="1" from="meaning">site navigation</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/layouts/header/topbar/topbar.component.html</context>
+                    <context context-type="linenumber">29</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="f5817be74bdd1b2feb26e4d9b46cec27c4e345c8">
+                <source>
+                    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"></x>
+                    
+                    Bacon ipsum dolor amet strip drumk shankle frankfur salami bham hock   Cow hamburger shoulder brisk
+                            dolor amet strip steak drumstick shankle frankfur  filet bacon ipsum<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"></x>
+                </source>
+                <target>Bacon ipsum dolor amet strip drumk shankle frankfur salami bham hock   Cow hamburger shoulder brisk
+                            dolor amet strip steak drumstick shankle frankfur  filet bacon ipsum</target>
+                <note priority="1" from="description">About me description</note>
+                <note priority="1" from="meaning">footer widget</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/layouts/footer/footer.component.html</context>
+                    <context context-type="linenumber">9</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="relatedPosts" datatype="html">
+                <source>Related Posts</source>
+                <target>相关文章</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">107</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="says" datatype="html">
+                <source>says</source>
+                <target>说</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">158</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">188</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">218</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">252</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">282</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">312</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="loginToReply">
+                <source>Log in to Reply</source>
+                <target>回复</target>
+                <note priority="1" from="description">Prompt user log in to reply</note>
+                <note priority="1" from="meaning">post comments</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">170</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">200</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">230</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">264</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">294</context>
+                </context-group>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">324</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="leaveAReply" datatype="html">
+                <source>Leave a Reply</source>
+                <target>评论</target>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">336</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="2c3572d142f5ba1e0274f6d1990053ad810217c4">
+                <source>You must be</source>
+                <target>你必须</target>
+                <note priority="1" from="description">comment reply prompt message</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">340</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="2f77a7708cc99f8e257802a8e33b249895d25c84">
+                <source>logged in</source>
+                <target>登录</target>
+                <note priority="1" from="description">comment reply prompt message</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">340</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit datatype="html" id="d6ca1927ee96914dd9aa4d8327d50ebc3e8f28b6">
+                <source>to post a comment.</source>
+                <target>来发表评论</target>
+                <note priority="1" from="description">comment reply prompt message</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/article/detail/detail.component.html</context>
+                    <context context-type="linenumber">340</context>
+                </context-group>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
