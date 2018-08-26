@@ -64,8 +64,11 @@ app.use(session({
 
 function getLocaleLanguage(req) {
     const languages = req.headers['accept-language'];
-    const locale = languages.split(';')[0].split(',')[1];
-    return locale;
+    let locale = languages.split(';')[0].split(',')[1];
+    if (!locale) {
+        locale = languages.split(';')[0].split(',')[0].split('-')[0];
+    }
+    return locale || 'en';
 }
 
 app.engine('html', ngExpressEngine({
